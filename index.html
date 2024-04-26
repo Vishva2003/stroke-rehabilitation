@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style\css\index.css">
+  
+</head>
+<body>
+  <div class="login-reg-panel">
+		<div class="login-info-box">
+			<h2>Have an account?</h2>
+			<p>Then just Login! </p>
+			<label id="label-register" for="log-reg-show">Login</label>
+			<input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
+		</div>
+							
+		<div class="register-info-box">
+			<h2>Don't have an account?</h2>
+			<p>Please register here!</p>
+			<label id="label-login" for="log-login-show">Register</label>
+			<input type="radio" name="active-log-panel" id="log-login-show">
+		</div>
+							
+		<div class="white-panel">
+			<div class="login-show">
+				<h2>LOGIN</h2>
+        <div id="msg" style="color: #fff;"></div>
+				<input type="text"
+        class="form-control"
+        id="uname"
+        placeholder="Enter Username"
+        required
+        pattern="[A-Za-z]{3,}"/>
+
+				<input type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter Password"
+                    required
+                    pattern="[A-Za-z0-9]{6,} ">
+
+				<input type="button" id="login-submit" value="Login">
+
+        <input class="form-check-input" type="checkbox" id="Check" />
+
+        <a class="btn w-100 submit-btn" id="login-submit" href="#">Remember me</a>
+			</div>
+
+			<div class="register-show">
+        <form action="" id="reg-form">
+        
+				<h2>REGISTER</h2>
+        <div id="regmsg" style="color: #fff;"></div>
+
+				<input type="text"
+        class="form-control"
+        id="reg-uname"
+        placeholder="Enter Uname"
+        required
+        pattern="[A-Za-z0-9]{3,}"/>
+
+				<input type="password"
+        class="form-control"
+        id="reg-password"
+        placeholder="Enter Password"
+        required
+        pattern="[A-Za-z0-9]{3,}"/>
+
+				<input   type="password"
+        class="form-control"
+        id="re-password"
+        placeholder="Confirm Password"
+        required />
+
+        <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="reg-check"
+                    required
+                  />
+        <a class="btn w-100 submit-btn" id="login-submit" href="#">Remember me</a>
+
+				<input
+    type="button"
+    class="btn w-100 submit-btn"
+    id="reg-submit"
+    value="Sign in"/>
+        </form>
+			</div>
+		</div>
+	</div>
+
+  <script src="./style/js/main.js">   
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var loginInfoBox = document.querySelector(".login-info-box");
+      var loginShow = document.querySelector(".login-show");
+    
+      loginInfoBox.style.display = "none";
+      loginShow.classList.add("show-log-panel");
+    
+      var loginRegPanelInputs = document.querySelectorAll('.login-reg-panel input[type="radio"]');
+      loginRegPanelInputs.forEach(function (input) {
+        input.addEventListener("change", function () {
+          var logLoginShow = document.getElementById("log-login-show");
+          var logRegShow = document.getElementById("log-reg-show");
+          var registerInfoBox = document.querySelector(".register-info-box");
+    
+          if (logLoginShow.checked) {
+            registerInfoBox.style.display = "none";
+            loginInfoBox.style.display = "block";
+    
+            var whitePanel = document.querySelector(".white-panel");
+            whitePanel.classList.add("right-log");
+    
+            var registerShow = document.querySelector(".register-show");
+            var loginShow = document.querySelector(".login-show");
+    
+            registerShow.classList.add("show-log-panel");
+            loginShow.classList.remove("show-log-panel");
+          } else if (logRegShow.checked) {
+            registerInfoBox.style.display = "block";
+            loginInfoBox.style.display = "none";
+    
+            var whitePanel = document.querySelector(".white-panel");
+            whitePanel.classList.remove("right-log");
+    
+            var loginShow = document.querySelector(".login-show");
+            var registerShow = document.querySelector(".register-show");
+    
+            loginShow.classList.add("show-log-panel");
+            registerShow.classList.remove("show-log-panel");
+          }
+        });
+      });
+    });
+    
+    
+  </script>
+
+</body>
+
+</html>

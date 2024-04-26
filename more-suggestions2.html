@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leg Exercises & Progress Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura.css" type="text/css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Styling for leg exercise container */
+        #legExerciseContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* Styling for leg exercise items */
+        .legExercise {
+            width: 100%;
+            
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: left;
+        }
+
+        a.move-top {
+            width: 34px;
+            height: 34px;
+            
+            display: inline-block;
+            position: fixed;
+            bottom: 4%;
+            right: 2%;
+            z-index: 0;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <a class="button" onclick=moresuggestions()>Previous page</a>
+    <a class="button" onclick=Progresstracker()>Progress Tracker</a>
+    <h1>Leg Exercise Images</h1>
+
+    <!-- Container to hold leg exercise images and descriptions -->
+    <div id="legExerciseContainer"></div>
+
+    <!-- Progress Tracker Button -->
+    <a href="#" class="move-top text-center"><img src="Assets\move-top.png"></a>
+
+    <!-- JavaScript to attach leg exercise images and descriptions -->
+    <script>
+        // Leg exercise data containing name, image path, and description
+        const legExercises = [
+            {
+                name: "Ski Squats Wall Sits",
+                imagePath: "Assets/Ski squats wall sits.jpeg",
+                description: "Perform squat exercises against a wall to strengthen leg muscles and improve lower body endurance."
+            },
+            {
+                name: "Bridging",
+                imagePath: "Assets/Bridging.jpeg",
+                description: "Engage core and glute muscles by lifting hips off the floor, improving hip stability and strength."
+            },
+            {
+                name: "Assisted Reverse Leg Swings",
+                imagePath: "Assets/Assisted Reverse Leg Swings.jpeg",
+                description: "Hold onto a support and swing your leg backward, targeting the hamstrings and improving balance."
+            },
+            {
+                name: "Assisted Lateral Leg Swings",
+                imagePath: "Assets/Assisted Lateral Leg Swings.jpeg",
+                description: "Hold onto a support and swing your leg sideways, targeting the outer thigh muscles and enhancing flexibility."
+            },
+            {
+                name: "Assisted Knee Raises",
+                imagePath: "Assets/Assisted Knee Raises.jpeg",
+                description: "Hold onto a support and lift your knee towards your chest, working on hip and knee strength and control."
+            }
+        ];
+
+        // Function to attach leg exercise images and descriptions to the DOM
+        function attachLegExerciseImages() {
+            const container = document.getElementById("legExerciseContainer");
+
+            // Loop through each leg exercise
+            legExercises.forEach((exercise) => {
+                // Create elements for leg exercise display
+                const exerciseDiv = document.createElement("div");
+                exerciseDiv.classList.add("legExercise");
+
+                const exerciseName = document.createElement("h2");
+                exerciseName.textContent = exercise.name;
+
+                const exerciseImg = document.createElement("img");
+                exerciseImg.src = exercise.imagePath;
+                exerciseImg.alt = exercise.name; // Alt text for accessibility
+
+                const exerciseDesc = document.createElement("p");
+                exerciseDesc.textContent = exercise.description;
+
+                // Append leg exercise elements to the container
+                exerciseDiv.appendChild(exerciseName);
+                exerciseDiv.appendChild(exerciseImg);
+                exerciseDiv.appendChild(exerciseDesc);
+                container.appendChild(exerciseDiv);
+            });
+        }
+
+        // Call the function to attach leg exercise images and descriptions when the page loads
+        attachLegExerciseImages();
+
+
+    </script>
+    <script src="./style/js/main.js"></script>
+</body>
+</html>

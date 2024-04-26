@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Exercise Suggestions</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura.css" type="text/css">
+
+    <style>
+        a.move-top {
+            width: 34px;
+            height: 34px;
+            
+            display: inline-block;
+            position: fixed;
+            bottom: 4%;
+            right: 2%;
+            z-index: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <a class="button" onclick=eeg()>Previous Page</a>
+    <a class="button" onclick=Progresstracker()>Progress Tracker</a>
+    <div class="maindiv">
+    <h3>Here are the exercises suggested for you:</h3>
+    <a onclick="suggestions()" class="button">Click here to show suggestions</a><br><br>
+    <div id="stages" >
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/zpseq7i4_7A?si=tLAdOq6ETyNyUD8B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+    </div>
+
+    <a onclick="moresuggestions()" class="button">Do you need More Suggestions?</a><br><br>
+    <a href="#" class="move-top text-center"><img src="Assets\move-top.png"></a>
+    <script src="./style/js/main.js"></script>
+</div>
+</body>
+</html>
